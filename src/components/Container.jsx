@@ -9,6 +9,10 @@ const BLOCK = 'notifications';
 function Container({
     notifications,
 }) {
+    if (!notifications) {
+        return null;
+    }
+
     return (
         <div className={BLOCK}>
             {notifications.map( ({ message, ...status }) => 
