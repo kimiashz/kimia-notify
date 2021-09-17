@@ -1,13 +1,12 @@
+function get(){
+  return  Promise.resolve({ data: 'response' })
+  .then(({ data }) => data )
+  .catch((err) => {
+    console.log(err);
+  });
+}
 module.exports = async function getContests() {
-  const result;
-  
-    await Promize.resolve({ data: 'response' })
-      .then(({ data }) => {
-        result = data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    
-    return result;
+  const result = await get();
+      
+  return result;
 };
