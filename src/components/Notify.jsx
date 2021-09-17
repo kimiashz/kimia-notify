@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { add } from 'src/store/actions';
+import { add } from '/src/store/actions';
 
 const DELAY_DEFAULT = 3000;
 
@@ -10,7 +10,7 @@ function Notify({
     add,
     delay,
     children,
-    ...status,
+    ...status
 }) {
     if (!children) {
         return null;
@@ -23,7 +23,7 @@ function Notify({
     }
     add(notification, delay);
     
-    return null;
+    return <div>kimia</div>;
 }
 
 Notify.defaultProps = {

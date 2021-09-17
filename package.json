@@ -1,16 +1,11 @@
 {
   "name": "kimia-notify",
-  "version": "1.0.6",
+  "version": "1.1.37",
   "description": "Tiny React module that ease showing notifications.",
-  "main": "index.js",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "author": "kimiashz",
   "license": "MIT",
@@ -21,14 +16,16 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.15.5",
-    "babel-loader": "^8.2.2",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
+    "react-dom": "^17.0.2",
     "sass": "^1.41.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
-    "webpack": "^5.53.0"
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

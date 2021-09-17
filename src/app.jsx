@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 
-import store from 'src/store'
-import Container from 'src/components/Container.jsx';
-
-import Notify from 'src/components/Notify.jsx';
+import store from '/src/store';
+import Container from '/src/components/Container.jsx';
+import Notify from '/src/components/Notify.jsx';
 
 function Notifications() {
     return (

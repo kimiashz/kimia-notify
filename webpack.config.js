@@ -1,19 +1,24 @@
 var path = require('path');
 
 module.exports = {
-    entry : 'index.jsx',
+    entry : '/index.js',
     output : {
         path : path.resolve(__dirname , 'dist'),
         filename: 'bundle.js',
+        libraryTarget: 'commonjs'
     },
     module : {
         rules : [
-            {test : /\.(jsx)$/, use:'babel-loader'},
+            {
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+            },
             {test : /\.sass$/, use:['style-loader','css-loader','sass-loader']}
         ]
     },
-    mode:'development',
-    devServer: {
-        historyApiFallback: true,
-    }
+    resolve: {
+        modules: ['node_modules', path.join(__dirname, 'src'), 'assets'],
+    },
+    mode:'development'
 };

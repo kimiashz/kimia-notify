@@ -1,1 +1,1 @@
-export { default as Notifications } from 'src/app.jsx';
+export * from './src/app.jsx';
