@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { add } from '/src/store/actions';
+import { addAction, removeAction } from '/src/store/actions';
+import withStore from './withStore.jsx';
 
 const DELAY_DEFAULT = 3000;
 
 function Notify({
     add,
+    remove,
     delay,
     children,
     ...status
@@ -21,9 +23,13 @@ function Notify({
         delay,
         ...status,
     }
-    add(notification, delay);
+
+    add(notification);
+    setTimeout(() => {
+        remove(notification)
+    }, delay);
     
-    return <div>kimia</div>;
+    return null;
 }
 
 Notify.defaultProps = {
@@ -38,6 +44,9 @@ Notify.propTypes = {
     children: PropTypes.node,
 };
 
-const mapDispatchToProps = { add };
+const mapDispatchToProps = dispatch => ({
+    add: (...args) => dispatch(addAction(...args)),
+    remove: (...args) => dispatch(removeAction(...args)),
+});
 
-export default connect(null, mapDispatchToProps)(Notify);
+export default withStore(connect(null, mapDispatchToProps)(Notify));

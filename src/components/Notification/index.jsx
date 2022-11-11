@@ -1,33 +1,39 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
+import { classGenerator } from '/src/utils.js';
+
+import './Notification.sass';
+
 const BLOCK = 'notification';
+const cg = classGenerator(BLOCK);
 
 function Notification({
     children,
+    delay,
+    className: classNameProp,
     ...status
 }) {
-    const modifier = `${BLOCK}--${status}`;
+    const className = cg(
+        status,
+        undefined,
+        classNameProp,
+    );
+
     return (
-        <div className={`${BLOCK} ${modifier}`}>
+        <div className={className}>
             {children}
         </div>
     )
 }
 
 Notification.defaultProps = {
-    info: false,
-    warning: false,
-    success: false,
-    error: false,
+    delay: undefined,
 };
 
 Notification.propTypes = {
     children: PropTypes.string.isRequired,
-    info: PropTypes.bool,
-    warning: PropTypes.bool,
-    success: PropTypes.bool,
-    error: PropTypes.bool,
+    delay: PropTypes.number,
 };
 
 export default memo(Notification);

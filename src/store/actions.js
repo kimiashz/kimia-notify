@@ -1,20 +1,15 @@
 import { ADD, REMOVE } from './action-types';
 
-export function add(notification, delay) {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(remove(notification));
-        }, delay);
-        return {
-            type: ADD,
-            payload: notification,
-        }
+export function addAction(notification) {
+    return {
+        type: ADD,
+        payload: notification,
     };
 }
 
-export function remove(ref) {
+export function removeAction(ref) {
     return {
-      type: REMOVE,
-      payload: ref,
+        type: REMOVE,
+        payload: ref,
     };
 }

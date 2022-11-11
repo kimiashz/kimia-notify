@@ -1,0 +1,9 @@
+@import '~/app/styles/variables'
+
+@mixin widths
+    width: 100%
+    @each $size, $break in $breakpoints
+        @media only screen and (min-width: $break)
+            max-width: $break
+
+

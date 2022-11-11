@@ -1,16 +1,23 @@
 import { ADD, REMOVE } from './action-types';
 
-function reducer(state = [], { type, payload }) {
+const INIT = {
+    notifications: []
+};
+
+function reducer(state = INIT, { type, payload }) {
     switch (type) {
         case ADD:
             return {
                 ...state,
-                ...payload,
+                notifications: [
+                    ...state.notifications,
+                    payload
+                ]
             }
         case REMOVE:
-            const filtered = state.filter( notif => notif !== payload );
             return {
-                ...filtered,
+                ...state,
+                notifications: state.notifications.filter( notif => notif !== payload )
             }
         default:
             return state

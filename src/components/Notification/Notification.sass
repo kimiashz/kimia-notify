@@ -1,0 +1,22 @@
+@import '~/src/styles/variables'
+
+.notification
+    color: $gray
+    background-color: $gray
+    padding: $space
+
+    @mixin status($color)
+        color: $color
+        background-color: rgba($color, 0.05)
+
+    &--info
+        @include status($info)
+
+    &--warning
+        @include status($warning)
+
+    &--success
+        @include status($success)
+
+    &--error
+        @include status($error)
